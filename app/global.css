@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+
+/* PatchCaster brand, taken from the herald mascot: a royal-blue banner and a
+   bright blue field, gold and brass armour, a red plume, cyan eyes. Light mode
+   leads with the blues; dark mode puts the gold on a deep navy. */
+@theme {
+  --color-brand-royal: #13359e;
+  --color-brand-sky: #0075fb;
+  --color-brand-gold: #f7b93b;
+  --color-brand-brass: #c7802b;
+  --color-brand-plume: #ad081a;
+  --color-brand-glow: #7efbfd;
+  --color-brand-ink: #29160f;
+  --color-brand-steel: #89a1a5;
+
+  --color-fd-primary: #13359e;
+  --color-fd-primary-foreground: hsl(0, 0%, 98%);
+  --color-fd-ring: #0075fb;
+
+  /* Accent for small highlights, and the two ends of the headline gradient. */
+  --color-brand-signal: #0075fb;
+  --color-hero-from: #13359e;
+  --color-hero-to: #0075fb;
+}
+
+.dark {
+  --color-fd-background: hsl(226, 55%, 7%);
+  --color-fd-foreground: hsl(220, 40%, 95%);
+  --color-fd-muted: hsl(226, 45%, 11%);
+  --color-fd-muted-foreground: hsl(188, 12%, 66%);
+  --color-fd-popover: hsl(226, 50%, 9%);
+  --color-fd-popover-foreground: hsl(220, 40%, 95%);
+  --color-fd-card: hsla(226, 50%, 14%, 0.55);
+  --color-fd-card-foreground: hsl(220, 40%, 95%);
+  --color-fd-border: hsla(220, 60%, 70%, 0.16);
+  --color-fd-secondary: hsl(226, 45%, 15%);
+  --color-fd-secondary-foreground: hsl(220, 40%, 92%);
+  --color-fd-accent: hsl(226, 40%, 17%);
+  --color-fd-accent-foreground: hsl(220, 40%, 95%);
+
+  --color-fd-primary: #f7b93b;
+  --color-fd-primary-foreground: #29160f;
+  --color-fd-ring: #f7b93b;
+
+  --color-brand-signal: #7efbfd;
+  --color-hero-from: #f7b93b;
+  --color-hero-to: #c7802b;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html > body[data-scroll-locked] {
+  margin-right: 0px !important;
+  --removed-body-scroll-bar-size: 0px !important;
+}
