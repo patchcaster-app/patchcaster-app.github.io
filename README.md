@@ -46,6 +46,16 @@ A custom domain is set there too. The workflow reads the address from
 `actions/configure-pages`, so a project site under `/<repository>/` and a
 custom domain both work without code changes.
 
+## Analytics
+
+Deployed builds load the [Umami Cloud](https://cloud.umami.is) tracker. It
+counts visits without cookies and reports the Core Web Vitals of real
+visitors (`data-performance`). The website ID is in
+`components/analytics.tsx`. Local builds lack the deployed address and render
+no tracker, and `data-domains` stops copies of the site from reporting. The
+landing page's calls to action carry `data-umami-event` attributes, so the
+Events view shows which ones visitors use.
+
 ## Design
 
 The mascot is the GitHub organisation avatar (`assets/patchcaster.webp`,

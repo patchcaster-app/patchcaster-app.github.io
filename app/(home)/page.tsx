@@ -12,6 +12,7 @@ import {
 import { ServerCodeBlock } from 'fumadocs-ui/components/codeblock.rsc';
 import { ThreadPreview } from '@/components/home/thread-preview';
 import { Mascot } from '@/components/logo';
+import { analyticsEnabled } from '@/components/analytics';
 import { repositoryUrl } from '@/lib/shared';
 
 const primaryButton =
@@ -110,10 +111,10 @@ function Hero() {
             status board that keeps itself current, and every notable event lands as a reply right below it.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Link href="/docs/install" className={primaryButton}>
+            <Link href="/docs/install" className={primaryButton} data-umami-event="get-started" data-umami-event-placement="hero">
               Get started <ArrowRight className="size-4" />
             </Link>
-            <Link href="/docs" className={secondaryButton}>
+            <Link href="/docs" className={secondaryButton} data-umami-event="read-docs" data-umami-event-placement="hero">
               Read the docs
             </Link>
           </div>
@@ -172,10 +173,10 @@ function Deploy() {
             and helmfile setups that verify the chart&apos;s signature before installing it.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
-            <Link href="/docs/install" className={secondaryButton}>
+            <Link href="/docs/install" className={secondaryButton} data-umami-event="get-started" data-umami-event-placement="deploy">
               Installation guide <ArrowRight className="size-4" />
             </Link>
-            <a href="https://github.com/patchcaster-app/charts" className={secondaryButton}>
+            <a href="https://github.com/patchcaster-app/charts" className={secondaryButton} data-umami-event="helm-chart">
               Helm chart
             </a>
           </div>
@@ -201,10 +202,10 @@ function ClosingCallToAction() {
             Start with the installation guide, or read how configuration, integrations and operations fit together.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
-            <Link href="/docs/install" className={primaryButton}>
+            <Link href="/docs/install" className={primaryButton} data-umami-event="get-started" data-umami-event-placement="closing">
               Get started <ArrowRight className="size-4" />
             </Link>
-            <a href={repositoryUrl} className={secondaryButton}>
+            <a href={repositoryUrl} className={secondaryButton} data-umami-event="github" data-umami-event-placement="closing">
               View on GitHub
             </a>
           </div>
@@ -218,7 +219,10 @@ function Footer() {
   return (
     <footer className="border-t border-fd-border">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-8 text-sm text-fd-muted-foreground">
-        <p>PatchCaster is open source under the MIT licence.</p>
+        <div className="space-y-1">
+          <p>PatchCaster is open source under the MIT licence.</p>
+          {analyticsEnabled && <p>This site counts visits with Umami, without cookies.</p>}
+        </div>
         <nav className="flex gap-6">
           <Link href="/docs" className="hover:text-fd-foreground">
             Docs
